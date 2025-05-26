@@ -6,7 +6,7 @@ git clone --depth 1 --recurse-submodules --shallow-submodules --jobs 8 --branch 
 
 cmake --fresh -G "Visual Studio 17 2022" -B ./build-arangodb/ -S ./arangodb/  --preset community -T="ClangCL" -DSKIP_PACKAGING=TRUE -DUSE_JEMALLOC=FALSE -DUSE_LIBUNWIND=FALSE -DUSE_V8=OFF -DUSE_BUILD_ID_READER=OFF
 
-cmake --build ./build-arangodb/ --target arangod.exe
+cmake --build ./build-arangodb/ --target arangod
 
 echo "To build arangod target run:"
 echo "cmake --build ./build-arangodb/ --target arangod"
