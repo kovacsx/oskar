@@ -35,9 +35,9 @@ RUN choco install yarn
 
 # Install Visual Studio Build Tools with the Windows SDK
 # from https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-history
-# Current buildtools version 17.13.7
+# Current buildtools version 17.14.2
 RUN powershell -Command \
-    Invoke-WebRequest -Uri https://aka.ms/vs/17/release.ltsc.17.12/vs_buildtools.exe -OutFile vs_buildtools.exe; \
+    Invoke-WebRequest -Uri https://download.visualstudio.microsoft.com/download/pr/d99c7868-44a2-4254-9861-78e21c19bd34/fa923c074d0a62d965f4dac9020924afbfe452c6ee29b294e227acd1913c0452/vs_BuildTools.exe -OutFile vs_buildtools.exe; \
     Start-Process -Wait -FilePath .\vs_buildtools.exe -ArgumentList '--quiet --wait --norestart --nocache --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.26100 --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset --add Microsoft.VisualStudio.Component.VC.Llvm.Clang --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Llvm.Clang --add Microsoft.VisualStudio.Component.VC.CMake.Project'; \
     Remove-Item -Force vs_buildtools.exe
 
