@@ -2,11 +2,11 @@
 
 echo "ArangoDB build on windows latest started!"
 
-git clone --depth 1 --recurse-submodules --shallow-submodules --jobs 8 --branch feature/windows-clang-build https://github.com/fceller/arangodb
+git clone --depth 1 --recurse-submodules --shallow-submodules --jobs 8 --branch feature/windows-clang-build https://github.com/fceller/arangodb src
 
-cmake --fresh -G "Visual Studio 17 2022" -B ./build-arangodb/ -S ./arangodb/  --preset community -T="ClangCL" -DSKIP_PACKAGING=TRUE -DUSE_JEMALLOC=FALSE -DUSE_LIBUNWIND=FALSE -DUSE_V8=OFF -DUSE_BUILD_ID_READER=OFF
+cmake --fresh -G "Visual Studio 17 2022" -B ./build/ -S ./src/  --preset community -T="ClangCL" -DSKIP_PACKAGING=TRUE -DUSE_JEMALLOC=FALSE -DUSE_LIBUNWIND=FALSE -DUSE_V8=OFF -DUSE_BUILD_ID_READER=OFF
 
-cmake --build ./build-arangodb/ --target arangod
+cmake --build ./build/ --target arangod
 
 echo "To build arangod target run:"
 echo "cmake --build ./build-arangodb/ --target arangod"
